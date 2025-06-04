@@ -1,7 +1,13 @@
-const Home = () => {
-  return (
-    <div>Home</div>
-  )
-}
+import ImageSearch from './ImageSearch/ImageSearch';
+import SearchBar from './SearchBar/SearchBar';
 
-export default Home
+const Home = () => {
+	return (
+		<div className="flex flex-col gap-6 py-8">
+			<SearchBar />
+			<ImageSearch />
+		</div>
+	);
+};
+
+export default Home;
