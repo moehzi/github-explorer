@@ -1,0 +1,12 @@
+{
+  "home": {
+    "title": "Trending Repositories",
+    "loading": "Loading trending repositories...",
+    "stars": "⭐ {count} stars"
+  },
+  "favorites": {
+    "title": "Favorite Repositories",
+    "noFavorites": "No favorite repositories yet.",
+    "remove": "Remove"
+  }
+}
