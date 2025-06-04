@@ -1,12 +1,11 @@
 {
-  "home": {
-    "title": "Trending Repositories",
-    "loading": "Loading trending repositories...",
-    "stars": "⭐ {count} stars"
-  },
-  "favorites": {
-    "title": "Favorite Repositories",
-    "noFavorites": "No favorite repositories yet.",
-    "remove": "Remove"
-  }
+	"home": {
+		"searchTitle": "Find a GitHub User",
+		"searchDescription": "Enter a GitHub username to view their repositories and profile information."
+	},
+	"favorites": {
+		"title": "Favorite Repositories",
+		"noFavorites": "No favorite repositories yet.",
+		"remove": "Remove"
+	}
 }
