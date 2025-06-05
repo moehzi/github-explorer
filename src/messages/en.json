@@ -1,7 +1,10 @@
 {
 	"home": {
 		"searchTitle": "Find a GitHub User",
-		"searchDescription": "Enter a GitHub username to view their repositories and profile information."
+		"searchDescription": "Enter a GitHub username to view their repositories and profile information.",
+		"searchResults": "Search Results",
+		"repositories": "repositories",
+		"emptySearch": "No results found"
 	},
 	"favorites": {
 		"title": "Favorite Repositories",

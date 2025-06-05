@@ -1,7 +1,7 @@
 import { createContext, useContext } from 'react';
 
 type HomeContextType = {
-	searchQuery: string;
+	searchQuery: string | null;
 	setSearchQuery: (query: string) => void;
 };
 
