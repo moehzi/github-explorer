@@ -6,13 +6,14 @@ type CardUserProps = {
 	username: string;
 	avatarUrl: string;
 	totalRepositories: number;
+	onClick: () => void;
 };
 
-export default function CardUser({ username, avatarUrl, totalRepositories }: CardUserProps) {
+export default function CardUser({ username, avatarUrl, totalRepositories, onClick }: CardUserProps) {
 	const t = useTranslations();
 
 	return (
-		<div className="flex items-center gap-4">
+		<div className="flex items-center gap-4" onClick={onClick}>
 			<Avatar className="w-14 h-14">
 				<AvatarImage src={avatarUrl} />
 			</Avatar>

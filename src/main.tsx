@@ -6,7 +6,7 @@ import { NuqsAdapter } from 'nuqs/adapters/react';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
 	<React.StrictMode>
-		<NuqsAdapter>
+		<NuqsAdapter fullPageNavigationOnShallowFalseUpdates>
 			<App />
 		</NuqsAdapter>
 	</React.StrictMode>

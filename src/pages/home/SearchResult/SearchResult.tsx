@@ -5,11 +5,14 @@ import { useTranslations } from 'next-intl';
 import CardUser from './CardUser/CardUser';
 import { loading as Loading } from './loading';
 import EmptySearch from './EmptySearch/EmptySearch';
+import { useNavigate } from 'react-router-dom';
 
 export default function SearchResult() {
 	const t = useTranslations();
 
 	const { searchQuery } = useHomeContext();
+
+	const navigate = useNavigate();
 
 	const { data, isLoading } = useSearchUser({
 		query: searchQuery ?? '',
@@ -37,6 +40,9 @@ export default function SearchResult() {
 					username={item.login}
 					avatarUrl={item.avatar_url}
 					totalRepositories={item.public_repos}
+					onClick={() => {
+						navigate(`/${item.login}`, { replace: true });
+					}}
 				/>
 			))}
 		</div>
