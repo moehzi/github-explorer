@@ -39,19 +39,12 @@ A modern React application for exploring GitHub users and repositories. Built wi
    ```bash
    npm install
    ```
-
-3. **Environment Setup**
-   ```bash
-   # Create .env file (optional - for GitHub API rate limiting)
-   VITE_GITHUB_TOKEN=your_github_personal_access_token
-   ```
-
-4. **Start development server**
+3. **Start development server**
    ```bash
    npm run dev
    ```
 
-5. **Open your browser**
+4. **Open your browser**
    Navigate to `http://localhost:5173`
 
 ## 🛠️ Available Scripts
