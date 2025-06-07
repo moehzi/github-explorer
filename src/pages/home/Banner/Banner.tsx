@@ -8,7 +8,7 @@ export default function Banner() {
 	if (searchQuery?.length) return null;
 
 	return (
-		<div data-cy="banner" className="flex flex-col gap-8 justify-center items-center flex-1">
+		<div data-cy="banner" data-testid="banner" className="flex flex-col gap-8 justify-center items-center flex-1">
 			<ImageSearch />
 			<TextContent />
 		</div>

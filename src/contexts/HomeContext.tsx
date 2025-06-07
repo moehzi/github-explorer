@@ -5,10 +5,7 @@ type HomeContextType = {
 	setSearchQuery: (query: string) => void;
 };
 
-export const HomeContext = createContext<HomeContextType>({
-	searchQuery: '',
-	setSearchQuery: () => {},
-});
+export const HomeContext = createContext<HomeContextType | null>(null);
 
 export const useHomeContext = () => {
 	const context = useContext(HomeContext);

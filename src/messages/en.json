@@ -5,10 +5,5 @@
 		"searchResults": "Search Results",
 		"repositories": "repositories",
 		"emptySearch": "No results found"
-	},
-	"favorites": {
-		"title": "Favorite Repositories",
-		"noFavorites": "No favorite repositories yet.",
-		"remove": "Remove"
 	}
 }
