@@ -7,17 +7,24 @@ vi.mock('@/assets/repo-icon.svg', () => ({
 	default: 'repo-icon.svg',
 }));
 
+// Mock the star icon
+vi.mock('@/assets/star.svg', () => ({
+	default: 'star-icon.svg',
+}));
+
 const mockRepo: Repository = {
 	id: 1,
 	name: 'test-repo',
 	description: 'A test repository',
 	html_url: 'https://github.com/user/test-repo',
+	stargazers_count: 42,
 };
 
 const mockRepoWithoutDescription: Repository = {
 	id: 2,
 	name: 'no-desc-repo',
 	html_url: 'https://github.com/user/no-desc-repo',
+	stargazers_count: 0,
 };
 
 describe('CardRepo', () => {
@@ -38,6 +45,8 @@ describe('CardRepo', () => {
 		expect(screen.getByText('test-repo')).toBeInTheDocument();
 		expect(screen.getByText('A test repository')).toBeInTheDocument();
 		expect(screen.getByAltText('repo-icon')).toBeInTheDocument();
+		expect(screen.getByAltText('star-icon')).toBeInTheDocument();
+		expect(screen.getByText('42')).toBeInTheDocument();
 	});
 
 	it('should render default description when description is not provided', () => {
@@ -45,12 +54,13 @@ describe('CardRepo', () => {
 
 		expect(screen.getByText('no-desc-repo')).toBeInTheDocument();
 		expect(screen.getByText('No description available')).toBeInTheDocument();
+		expect(screen.getByText('0')).toBeInTheDocument();
 	});
 
 	it('should open repository URL in new tab when clicked', () => {
 		render(<CardRepo repo={mockRepo} />);
 
-		const cardElement = screen.getByText('test-repo').closest('div')?.parentElement;
+		const cardElement = screen.getByAltText('repo-icon').closest('div')?.parentElement;
 		fireEvent.click(cardElement!);
 
 		expect(mockWindowOpen).toHaveBeenCalledWith('https://github.com/user/test-repo', '_blank');
@@ -60,7 +70,7 @@ describe('CardRepo', () => {
 		const mockOnClick = vi.fn();
 		render(<CardRepo repo={mockRepo} onClick={mockOnClick} />);
 
-		const cardElement = screen.getByText('test-repo').closest('div')?.parentElement;
+		const cardElement = screen.getByAltText('repo-icon').closest('div')?.parentElement;
 		fireEvent.click(cardElement!);
 
 		expect(mockOnClick).toHaveBeenCalledWith(mockRepo);
@@ -70,14 +80,14 @@ describe('CardRepo', () => {
 	it('should apply custom className', () => {
 		render(<CardRepo repo={mockRepo} className="custom-class" />);
 
-		const cardElement = screen.getByText('test-repo').closest('div')?.parentElement;
+		const cardElement = screen.getByAltText('repo-icon').closest('div')?.parentElement;
 		expect(cardElement).toHaveClass('custom-class');
 	});
 
 	it('should have proper styling classes', () => {
 		render(<CardRepo repo={mockRepo} />);
 
-		const cardElement = screen.getByText('test-repo').closest('div')?.parentElement;
+		const cardElement = screen.getByAltText('repo-icon').closest('div')?.parentElement;
 		expect(cardElement).toHaveClass(
 			'flex',
 			'gap-4',
@@ -109,7 +119,15 @@ describe('CardRepo', () => {
 	it('should render text content with proper styling', () => {
 		render(<CardRepo repo={mockRepo} />);
 
-		const textContainer = screen.getByText('test-repo').parentElement;
+		const textContainer = screen.getByText('test-repo').closest('div')?.parentElement;
 		expect(textContainer).toHaveClass('flex', 'flex-col', 'gap-0.5', 'max-w-[800px]');
+	});
+
+	it('should render star count correctly', () => {
+		render(<CardRepo repo={mockRepo} />);
+
+		const starContainer = screen.getByAltText('star-icon').parentElement;
+		expect(starContainer).toHaveClass('flex', 'items-center', 'gap-1');
+		expect(screen.getByText('42')).toBeInTheDocument();
 	});
 });
