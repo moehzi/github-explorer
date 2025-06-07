@@ -1,55 +1,182 @@
-# React + TypeScript + Vite
+# GitHub Explorer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern React application for exploring GitHub users and repositories. Built with TypeScript, Vite, and TanStack Query for optimal performance and developer experience.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **User Search**: Search for GitHub users with real-time suggestions
+- **User Profiles**: View detailed user information including bio, stats, and location
+- **Repository Explorer**: Browse user repositories with sorting and filtering
+- **Favorites**: Save and manage favorite users for quick access
+- **Responsive Design**: Fully responsive UI that works on all devices
+- **Dark/Light Theme**: Theme switching support
+- **Internationalization**: Multi-language support with next-intl
+- **Error Handling**: Comprehensive error states and loading indicators
 
-## Expanding the ESLint configuration
+## 🚀 Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Frontend Framework**: React 18 with TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS with custom design system
+- **State Management**: TanStack Query for server state
+- **Routing**: React Router DOM
+- **UI Components**: Custom component library with Radix UI primitives
+- **Icons**: Lucide React
+- **Internationalization**: next-intl
+- **Testing**: Vitest + React Testing Library
+- **E2E Testing**: Cypress
+- **Code Quality**: ESLint + TypeScript
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 📦 Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd github-explorer
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Environment Setup**
+   ```bash
+   # Create .env file (optional - for GitHub API rate limiting)
+   VITE_GITHUB_TOKEN=your_github_personal_access_token
+   ```
+
+4. **Start development server**
+   ```bash
+   npm run dev
+   ```
+
+5. **Open your browser**
+   Navigate to `http://localhost:5173`
+
+## 🛠️ Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+- `npm run test` - Run unit tests
+- `npm run test:coverage` - Run tests with coverage report
+- `npm run test:ui` - Run tests with Vitest UI
+- `npm run cypress:open` - Open Cypress for e2e testing
+- `npm run cypress:run` - Run Cypress tests headlessly
+
+## 🧪 Testing
+
+This project maintains high code quality with comprehensive testing:
+
+### Unit Tests
+- **Framework**: Vitest + React Testing Library
+- **Coverage Target**: 80%
+- **Test Types**: Component tests, hook tests, utility tests, service tests
+
+```bash
+# Run all tests
+npm run test
+
+# Run tests with coverage
+npm run test:coverage
+
+# Run tests in watch mode
+npm run test:watch
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### E2E Tests
+- **Framework**: Cypress
+- **Coverage**: Critical user journeys
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+# Open Cypress Test Runner
+npm run cypress:open
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+# Run tests headlessly
+npm run cypress:run
 ```
-# github-explorer
+
+## 📁 Project Structure
+
+```
+src/
+├── components/          # Reusable UI components
+│   ├── ui/             # Base UI components (Button, Input, Card, etc.)
+│   └── feature/        # Feature-specific components
+├── pages/              # Page components
+├── hooks/              # Custom React hooks
+├── services/           # API services
+├── contexts/           # React contexts
+├── utils/              # Utility functions
+├── types/              # TypeScript type definitions
+├── styles/             # Global styles and Tailwind config
+└── test/               # Test utilities and setup
+```
+
+## 🎨 Design System
+
+The application features a custom design system built with Tailwind CSS:
+
+- **Typography**: Consistent text scales and weights
+- **Colors**: Carefully crafted color palette with dark/light theme support
+- **Components**: Reusable UI components with consistent styling
+- **Spacing**: Systematic spacing scale
+- **Responsive**: Mobile-first responsive design
+
+## 🌍 Internationalization
+
+The app supports multiple languages using next-intl:
+
+- English (default)
+- Easy to add more languages by extending the messages files
+
+## 🔧 Configuration
+
+### Vite Configuration
+- TypeScript support
+- Path aliases for clean imports
+- Optimized build configuration
+
+### ESLint Configuration
+- TypeScript-aware rules
+- React-specific linting
+- Import organization rules
+
+### Tailwind Configuration
+- Custom color palette
+- Typography plugin
+- Component utilities
+
+## 📈 Performance
+
+- **Code Splitting**: Automatic route-based code splitting
+- **Lazy Loading**: Components and routes loaded on demand
+- **Caching**: Intelligent caching with TanStack Query
+- **Bundle Optimization**: Tree-shaking and minification
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+### Development Guidelines
+
+- Write tests for new features
+- Follow the existing code style
+- Update documentation as needed
+- Ensure all tests pass before submitting PR
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- GitHub API for providing the data
+- React and Vite communities for excellent tooling
+- All open-source contributors who made this project possible
