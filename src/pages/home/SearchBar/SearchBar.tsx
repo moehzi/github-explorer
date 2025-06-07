@@ -1,29 +1,31 @@
 import { Input } from '@/components/ui/input';
 import SearchIcon from '@/assets/search.svg';
 import { useHomeContext } from '@/contexts/HomeContext';
-import { useEffect } from 'react';
+import { useCallback } from 'react';
 import { useState } from 'react';
 import { useDebounce } from '@/hooks/useDebounce';
 
 export default function SearchBar() {
 	const { setSearchQuery, searchQuery } = useHomeContext();
-	const [searchValue, setSearchValue] = useState('');
-	const debouncedSetSearchQuery = useDebounce((query: string) => setSearchQuery(query), 500);
+	const [searchValue, setSearchValue] = useState(searchQuery ?? '');
 
-	useEffect(() => {
-		debouncedSetSearchQuery(searchValue);
-	}, [debouncedSetSearchQuery, searchValue]);
+	const updateSearchQuery = useCallback(
+		(value: string) => {
+			setSearchQuery(value);
+		},
+		[setSearchQuery]
+	);
 
-	useEffect(() => {
-		if (searchQuery) {
-			setSearchValue(searchQuery);
-		}
-	}, [searchQuery]);
+	const debouncedSetSearchQuery = useDebounce(updateSearchQuery, 500);
 
-	const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-		const value = e.target.value;
-		setSearchValue(value);
-	};
+	const handleSearch = useCallback(
+		(e: React.ChangeEvent<HTMLInputElement>) => {
+			const value = e.target.value;
+			setSearchValue(value);
+			debouncedSetSearchQuery(value);
+		},
+		[debouncedSetSearchQuery]
+	);
 
 	return (
 		<>

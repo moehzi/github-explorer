@@ -12,8 +12,9 @@ type CardUserProps = {
 export default function CardUser({ username, avatarUrl, totalRepositories, onClick }: CardUserProps) {
 	const t = useTranslations();
 
+	console.log(username, 'username');
 	return (
-		<div className="flex items-center gap-4" onClick={onClick}>
+		<div className="flex w-full items-center gap-4 cursor-pointer hover:bg-gray-100 p-2 rounded-lg" onClick={onClick}>
 			<Avatar className="w-14 h-14">
 				<AvatarImage src={avatarUrl} />
 			</Avatar>
