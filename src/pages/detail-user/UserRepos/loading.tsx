@@ -3,7 +3,7 @@ import { H2 } from '@/components/ui/typography';
 
 const Loading = () => {
 	return (
-		<div className="flex flex-col gap-4">
+		<div className="flex flex-col gap-4 flex-[2]">
 			<H2>Repositories</H2>
 			<div className="flex flex-col gap-4 overflow-auto max-h-[400px] md:max-h-[600px] w-full">
 				{[...Array(5)].map((_, index) => (

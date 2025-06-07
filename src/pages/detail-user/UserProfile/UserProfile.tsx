@@ -16,7 +16,7 @@ const UserProfile = ({ username }: UserProfileProps) => {
 	if (!data) return <div>User not found</div>;
 
 	return (
-		<div data-cy="user-profile" className="flex flex-col items-center justify-center gap-4">
+		<div data-cy="user-profile" className="flex flex-col items-center justify-center gap-4 flex-[1]">
 			<Avatar data-cy="user-avatar" className="w-32 h-32">
 				<AvatarImage src={data.avatar_url} alt={data.login} />
 			</Avatar>
@@ -30,7 +30,7 @@ const UserProfile = ({ username }: UserProfileProps) => {
 					})}
 				</Lead>
 			</div>
-			<P>{data.bio}</P>
+			<P className="max-w-[400px]">{data.bio}</P>
 			<div className="flex flex-col gap-3">
 				<div className="flex gap-3">
 					<CardProfileCount count={data.followers} description="Followers" />
