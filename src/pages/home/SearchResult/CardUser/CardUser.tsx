@@ -12,7 +12,6 @@ type CardUserProps = {
 export default function CardUser({ username, avatarUrl, totalRepositories, onClick }: CardUserProps) {
 	const t = useTranslations();
 
-	console.log(username, 'username');
 	return (
 		<div
 			data-cy="user-card"
