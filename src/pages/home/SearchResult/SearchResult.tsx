@@ -9,9 +9,7 @@ import { useNavigate } from 'react-router-dom';
 
 export default function SearchResult() {
 	const t = useTranslations();
-
 	const { searchQuery } = useHomeContext();
-
 	const navigate = useNavigate();
 
 	const { data, isLoading } = useSearchUser({
@@ -41,7 +39,7 @@ export default function SearchResult() {
 					avatarUrl={item.avatar_url}
 					totalRepositories={item.public_repos}
 					onClick={() => {
-						navigate(`/${item.login}`, { replace: true });
+						navigate(`/${item.login}`);
 					}}
 				/>
 			))}

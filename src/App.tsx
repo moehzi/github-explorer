@@ -3,6 +3,7 @@ import { router } from './routes';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { IntlProvider } from './providers/IntlProvider';
 import MainLayout from './layout/MainLayout';
+import { NuqsAdapter } from 'nuqs/adapters/react';
 
 export default function App() {
 	const queryClient = new QueryClient({
@@ -19,7 +20,9 @@ export default function App() {
 		<QueryClientProvider client={queryClient}>
 			<IntlProvider>
 				<MainLayout>
-					<RouterProvider router={router} />
+					<NuqsAdapter>
+						<RouterProvider router={router} />
+					</NuqsAdapter>
 				</MainLayout>
 			</IntlProvider>
 		</QueryClientProvider>

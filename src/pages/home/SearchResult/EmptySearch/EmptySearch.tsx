@@ -5,7 +5,7 @@ export default function EmptySearch() {
 	const t = useTranslations();
 
 	return (
-		<div className="flex flex-col gap-4 items-start w-full max-h-[400px] flex-1">
+		<div className="flex flex-col gap-4 items-start w-full max-h-[400px] flex-1 h-full">
 			<H3>{t('home.searchResults')}</H3>
 			<div className="flex justify-center items-center flex-1 w-full">
 				<Muted>{t('home.emptySearch')}</Muted>

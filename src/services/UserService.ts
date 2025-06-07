@@ -12,6 +12,13 @@ export interface User {
 	created_at: string;
 }
 
+export interface Repo {
+	id: number;
+	name: string;
+	description: string;
+	html_url: string;
+}
+
 class UserService {
 	private baseUrl: string;
 
@@ -32,6 +39,26 @@ class UserService {
 		} catch (error: unknown) {
 			const axiosError = error as AxiosError;
 			throw new Error(`Failed to search users: ${axiosError.message}`);
+		}
+	}
+
+	async detailUser(username: string): Promise<User> {
+		try {
+			const response = await axios.get<User>(`${this.baseUrl}/users/${username}`);
+			return response.data;
+		} catch (error) {
+			const axiosError = error as AxiosError;
+			throw new Error(`Failed to get detail user: ${axiosError.message}`);
+		}
+	}
+
+	async getUserRepos(username: string): Promise<Repo[]> {
+		try {
+			const response = await axios.get<Repo[]>(`${this.baseUrl}/users/${username}/repos`);
+			return response.data;
+		} catch (error) {
+			const axiosError = error as AxiosError;
+			throw new Error(`Failed to get user repos: ${axiosError.message}`);
 		}
 	}
 }

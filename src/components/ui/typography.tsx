@@ -36,7 +36,7 @@ export const H4 = createComponent<HTMLHeadingElement>('h4', 'scroll-m-20 text-xl
 
 export const Lead = createComponent<HTMLParagraphElement>('p', 'text-xl text-muted-foreground', 'Lead');
 
-export const P = createComponent<HTMLParagraphElement>('p', 'leading-7 [&:not(:first-child)]:mt-6', 'P');
+export const P = createComponent<HTMLParagraphElement>('p', 'leading-7', 'P');
 
 export const Large = createComponent<HTMLDivElement>('div', 'text-lg font-semibold', 'Large');
 
