@@ -34,6 +34,7 @@ export default function SearchBar() {
 					<img src={SearchIcon} alt="search" />
 				</div>
 				<Input
+					data-cy="search-input"
 					value={searchValue}
 					placeholder="Search for a username"
 					className="pl-11 py-6 bg-[#F2F2F5] border-none rounded-xl"

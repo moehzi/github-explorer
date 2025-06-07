@@ -16,12 +16,12 @@ const UserProfile = ({ username }: UserProfileProps) => {
 	if (!data) return <div>User not found</div>;
 
 	return (
-		<div className="flex flex-col items-center justify-center gap-4">
-			<Avatar className="w-32 h-32">
+		<div data-cy="user-profile" className="flex flex-col items-center justify-center gap-4">
+			<Avatar data-cy="user-avatar" className="w-32 h-32">
 				<AvatarImage src={data.avatar_url} alt={data.login} />
 			</Avatar>
 			<div className="flex flex-col items-center justify-center">
-				<H2>{data.name}</H2>
+				<H2 data-cy="user-name">{data.name}</H2>
 				<Lead className="text-lg">@{data.login}</Lead>
 				<Lead className="text-lg">
 					Joined in{' '}

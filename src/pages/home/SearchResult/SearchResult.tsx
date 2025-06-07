@@ -30,7 +30,7 @@ export default function SearchResult() {
 	if (!data?.items.length) return null;
 
 	return (
-		<div className="flex flex-col gap-4 items-start w-full max-h-[400px] flex-1">
+		<div data-cy="search-results" className="flex flex-col gap-4 items-start w-full max-h-[400px] flex-1">
 			<H3>{t('home.searchResults')}</H3>
 			{data.items.map((item) => (
 				<CardUser

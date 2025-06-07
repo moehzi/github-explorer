@@ -14,7 +14,10 @@ export default function CardUser({ username, avatarUrl, totalRepositories, onCli
 
 	console.log(username, 'username');
 	return (
-		<div className="flex w-full items-center gap-4 cursor-pointer hover:bg-gray-100 p-2 rounded-lg" onClick={onClick}>
+		<div
+			data-cy="user-card"
+			className="flex w-full items-center gap-4 cursor-pointer hover:bg-gray-100 p-2 rounded-lg"
+			onClick={onClick}>
 			<Avatar className="w-14 h-14">
 				<AvatarImage src={avatarUrl} />
 			</Avatar>
